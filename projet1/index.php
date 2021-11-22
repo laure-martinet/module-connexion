@@ -3,5 +3,5 @@
    <head>
       <meta charset="utf-8">
       <title>Accueil</title>
-      
+ </head>
       </html>

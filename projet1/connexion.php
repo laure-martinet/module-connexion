@@ -1,77 +1,69 @@
 <?php
+
 session_start();
-$bdd = new PDO('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
-if(isset($_POST['connexion']))
+
+$bdd = new PDO('mysql:host=localhost;dbname=moduleconnexion', 'root', '');
+
+if(isset($_POST['formconnexion']))
 {
-    $erreur = "";
     $loginconnect = htmlspecialchars($_POST['loginconnect']);
-    $passwordconnect = htmlspecialchars($_POST['passwordconnect']);
-    $hashage = password_hash($passwordconnect, PASSWORD_BCRYPT);
+    $passwordconnect = $_POST['passwordconnect'];
+    
+    if(!empty($loginconnect) AND !empty($passwordconnect))
+        {
+            $requeteutilisateur = $bdd->prepare("SELECT * FROM utilisateurs WHERE login = ?"); // SAVOIR SI LE MEME LOGIN EST PRIS
+            $requeteutilisateur->execute(array($loginconnect));   // Execute le prepare
+            $result = $requeteutilisateur->fetchAll();   // Return TOUTE la requete ( tableau )
+            if (count($result) > 0){ // S'il trouve pas de même login, il return mauvais login
+                $sqlPassword = $result[0]['password'];  // Récupere le resultat du tableau (0)  /!\ SI PAS LE 0 ça marche pas /!\ et la colonne password
+                if(password_verify($passwordconnect, $sqlPassword)) // Si passwordconnect est hashé et qu'il est pareil que sql password c'est bon 
+                    {
+                    $_SESSION['id'] = $result[0]['id'];
+                    $_SESSION['login'] = $result[0]['login'];
+                    $_SESSION['nom'] = $result[0]['nom'];
+                    $_SESSION['prenom'] = $result[0]['prenom'];
+                    header("Location: profil.php");
 
-    if(!empty($loginconnect) AND !empty($passwordconnect)){
-    $requser = $bdd->prepare("SELECT * FROM utilisateurs WHERE login = ? AND password ?");
-    $requser->execute(array($loginconnect, $passwordconnect));
-    $userexist = $requser->rowCount();
-            if($userexist == 1){
-                $userinfo = $requser->fetch();
-                $_SESSION['id'] = $userinfo['id'];
-                $_SESSION['login'] = $userinfo['login'];
-                header("Location: profil.php?id=". $_SESSION['id']);
+                    }
+                else 
+                    {
+                    $erreur = "Mauvais mot de passe !";
+                    }
             }
-            else {
-                $erreur = "Mauvais login ou password";
-            }
-
-
-    }
-    else{
-        $erreur = "Tout les champs doivent etre remplis !";
-    }
+            else
+                $erreur = "Mauvais login !";
+        }
+    else
+        {
+         $erreur = "Tous les champs doivent être remplis !";
+        }
 }
-?>
-<!doctype html>
-<style>
-    body{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-</style>
-<html lang="fr">
-<head>
-        <meta charset="utf-8">
-        <title>connexion</title>
-</head>
-<body>
-<form method="POST" action="connexion.php">
-    <h2>Connexion</h2>
-<table>
-                <tr>
-                    <td align="right">
-                        <label for="login">Login:</label>
-                    </td>
-                    <td>
-                        <input type="text" placeholder="Login" id="login" name="loginconnect">
-                    </td> 
-                </tr>
-                <tr>
-                    <td align="right">
-                        <label for="login">Password:</label>
-                    </td>
-                    <td>
-                        <input type="password" placeholder="Votre password" id="password" name="passwordconnect">
-                    </td> 
-                    <td>
-                        <input type="submit" id="connexion" name="connexion" value="Se connecter">
-                    </td>
-                </tr>
-</table>
-</form>
-<?php
-    if (isset($erreur)){
-        echo $erreur;
-    }
-    ?>
-</body>
-</html>
 
+
+
+
+?>
+<html>
+    <head>
+        <title>Module Connexion</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div align="center">
+            <h2>Connexion</h2>
+            <br /><br /><br />
+            <form method="POST" action="">
+            <input type="text" name="loginconnect" placeholder="Login">
+            <input type="password" name="passwordconnect" placeholder="Password">
+            <br /><br />
+            <input type="submit" name="formconnexion" value="Se connecter !">
+        </form>
+        <?php 
+        if(isset($erreur))
+        {
+        echo '<font color="red">'.$erreur.'</font>'; 
+        }
+        ?>
+        </div>
+
+</html>

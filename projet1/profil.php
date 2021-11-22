@@ -2,11 +2,15 @@
 session_start();
 $bdd = new PDO('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
 if(isset($_GET['id']) AND $_GET['id'] > 0 ){
-$getid = intval($_GET['id']);
-$requser = $bdd->prepare("SELECT * FROM utilisateurs WHERE id = ?");
-$requser->execute(array($getid));
-$userinfo = $requser->fetch();
+    $getid = intval($_SESSION['id']); // Convertie ma valeur en int ( ID = un numéro )
+    $requtilisateur = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ?'); // créer une requete qui va récuperer tout de mon utilisateur de mon id actuel
+    $requtilisateur->execute(array($getid)); // return le tableau de mon utilisateur
+    $infoutilisateur = $requtilisateur->fetch(); // récupere les informations que j'appelle
 }
+
+echo  $_SESSION['login'];
+
+
 ?>
 
 <!doctype html>
@@ -23,17 +27,21 @@ $userinfo = $requser->fetch();
         <title>profil</title>
 </head>
 <body>
-    <h2>Profil de <?php echo $userinfo['login']; ?> </h2><br>
-    <p>Login de  <?php echo $userinfo['login']; ?> </p><br>
 <?php
-if(isset ($_SESSION ['id']) AND $userinfo['id'] == $_SESSION['id'] )
+if(isset ($_SESSION ['login']) AND $_SESSION['login'] == $_SESSION['login'] )
 {
 ?>
-<a href="#">Editer mon profil</a>
+<a href="editerprofil.php">Editer profil</a>
 <a href="deconnexion">Deconnexion</a>
-<?php 
-}
-?>
+
+    <h2>Profil de <?php echo $_SESSION['login']; ?> </h2><br>
+    <p>Login de  <?php echo $_SESSION['prenom']; ?> </p><br>
+
+
+<?php }
+
+
+// echo $infoutilisateur;?>
 </body>
 </html>
 
