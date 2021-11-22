@@ -23,6 +23,7 @@ $membres = $bdd->query('SELECT * FROM utilisateurs ORDER BY id DESC LIMIT 0,5');
 <html>
 <head>
    <meta charset="utf-8" />
+   <link rel="stylesheet" type="text/css" href="style.css">
    <title>Administration</title>
 </head>
 <body>

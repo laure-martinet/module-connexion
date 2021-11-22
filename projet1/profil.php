@@ -7,10 +7,6 @@ if(isset($_GET['id']) AND $_GET['id'] > 0 ){
     $requtilisateur->execute(array($getid)); // return le tableau de mon utilisateur
     $infoutilisateur = $requtilisateur->fetch(); // récupere les informations que j'appelle
 }
-
-echo  $_SESSION['login'];
-
-
 ?>
 
 <!doctype html>
@@ -23,6 +19,7 @@ echo  $_SESSION['login'];
 </style>
 <html lang="fr">
 <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
         <meta charset="utf-8">
         <title>profil</title>
 </head>

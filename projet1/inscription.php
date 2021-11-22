@@ -35,15 +35,9 @@
         
 ?>
 <!doctype html>
-<style>
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    </style>
 <html lang="fr">
 <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
         <meta charset="utf-8">
         <title>inscription</title>
 <body>

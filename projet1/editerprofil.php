@@ -73,6 +73,7 @@ if(isset($_SESSION['id']) && $_SESSION['id'] > 0)
 ?>
 <html>
     <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
         <title>Edition Profil</title>
         <meta charset="utf-8">
     </head>
