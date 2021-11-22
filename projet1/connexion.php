@@ -31,10 +31,11 @@ if(isset($_POST['formconnexion']))
                         }
                         
             }
-            else
+            else{
                 $erreur = "Mauvais login !";
+            }
         }
-        if ($result['login'] == 'admin'){
+        if ($_SESSION['login'] == 'admin'){
             header('Location: admin.php');
         }
     else
