@@ -26,15 +26,18 @@ $membres = $bdd->query('SELECT * FROM utilisateurs ORDER BY id DESC LIMIT 0,5');
    <link rel="stylesheet" type="text/css" href="style.css">
    <title>Administration</title>
 </head>
+<header>
+    <h1>Administration</h1>
+</header>
 <body>
-   <ul>
-      <?php while($m = $membres->fetch()) { ?>
-      <li><?= $m['id'] ?> : <?= $m['login'] ?> - <a href="index.php?type=membre&supprime=<?= $m['id'] ?>">Supprimer</a></li>
-      <?php } ?>
-   </ul>
-   <br /><br />
-   <ul>
-     
-   </ul>
+  <div id="admin">
+    <ul>
+        <?php while($m = $membres->fetch()) { ?>
+        <li><?= $m['id'] ?> : <?= $m['login'] ?> - <a href="index.php?type=supprime=<?= $m['id'] ?>">Supprimer</a></li>
+        <?php } ?>
+    </ul>
+    <br /><br />
+    <a href="deconnexion"><input type="button" value="Déconnexion"></a>
+  </div>
 </body>
 </html>

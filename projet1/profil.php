@@ -9,14 +9,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0 ){
 }
 ?>
 
-<!doctype html>
-<style>
-    body{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-</style>
+<!doctype html> 
 <html lang="fr">
 <head>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -24,21 +17,31 @@ if(isset($_GET['id']) AND $_GET['id'] > 0 ){
         <title>profil</title>
 </head>
 <body>
+    <div id="profil">
 <?php
 if(isset ($_SESSION ['login']) AND $_SESSION['login'] == $_SESSION['login'] )
 {
 ?>
-<a href="editerprofil.php">Editer profil</a>
-<a href="deconnexion">Deconnexion</a>
+<a href="editerprofil.php"><input type="button" value="Editez votre profil"></a><br>
+<a href="deconnexion"><input type="button" value="Déconnexion"></a>
 
     <h2>Profil de <?php echo $_SESSION['login']; ?> </h2><br>
-    <p>Login de  <?php echo $_SESSION['prenom']; ?> </p><br>
+    <p>Login de  <?php echo $_SESSION['prenom']; ?> </p>
+    <p>Login de  <?php echo $_SESSION['nom']; ?> </p>
 
 
 <?php }
 
 
 // echo $infoutilisateur;?>
+</div>
+<footer>
+      <div id="github">
+         <a href="https://github.com/laure-martinet/module-connexion">
+            <img src="imggit.png" width="300" height="200">
+         </a>
+      </div>
+   </footer>
 </body>
 </html>
 

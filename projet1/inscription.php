@@ -41,9 +41,11 @@
         <meta charset="utf-8">
         <title>inscription</title>
 <body>
-    <div class="wesh">
+    <header>
+    <h1>Inscription</h1>
+    </header>
+    <div id="inscri">
     <form method="POST" action="">
-        <h2>Inscription</h2>
             <table>
                 <tr>
                     <td align="right">
@@ -95,6 +97,7 @@
             </table>
             
     </form>
+    </div>
     <?php
     if (isset($erreur)){
         echo $erreur;

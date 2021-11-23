@@ -54,16 +54,27 @@ if(isset($_POST['formconnexion']))
         <title>Module Connexion</title>
         <meta charset="utf-8">
     </head>
-    <body>
-        <div align="center">
-            <h1>Connexion</h1>
-            <br /><br /><br />
+<body>
+    <header>
+    <h1>Connexion</h1>
+    <br /><br /><br />
+    </header>
+        <div id="connexion">
             <form method="POST" action="">
-            <input type="text" name="loginconnect" placeholder="Login">
-            <input type="password" name="passwordconnect" placeholder="Password">
-            <br /><br />
-            <input type="submit" name="formconnexion" value="Se connecter !">
-        </form>
+                <input type="text" name="loginconnect" placeholder="Login">
+                <input type="password" name="passwordconnect" placeholder="Password">
+                <br /><br />
+                <input type="submit" name="formconnexion" value="Se connecter !">
+                <a href="http://localhost/module-connexion/projet1/index.php"><input type="submit" name="retour" value="Retour à l'accueil"></a>
+            </form>
+        </div>
+        <footer>
+      <div id="github">
+         <a href="https://github.com/laure-martinet/module-connexion">
+            <img src="imggit.png" width="300" height="200">
+         </a>
+      </div>
+   </footer>
         <?php 
         if(isset($erreur))
         {

@@ -1,20 +1,73 @@
+/* // INDEX */
 h1{
     color:white;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: black;
 }
 body{
     background-color: blueviolet;
 }
 .link{
-    color:rgb(253, 253, 253);
+    color:rgb(255, 251, 251);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 footer{
     text-align: center;
     margin-top: 20%;
+    background-color: white;
     
     
+}
+
+/* CONNEXION */
+#connexion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* PROFIL */
+#profil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* EDITER PROFIL */
+#editer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10%;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+
+/* ADMIN */
+#admin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 200%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* INSCRIPTION */
+#inscri{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 160%;
+    margin-right: 10%;
 }

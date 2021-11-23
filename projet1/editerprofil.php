@@ -78,9 +78,11 @@ if(isset($_SESSION['id']) && $_SESSION['id'] > 0)
         <meta charset="utf-8">
     </head>
     <body>
-        <div align="center">
-            <h2>Edition de mon profil</h2>
+        <header>
+            <h1>Edition de mon profil</h1>
             <br />
+            </header>
+            <div id="editer">
             <form method="POST" action="">
             <table>
                 <tr>
@@ -120,6 +122,7 @@ if(isset($_SESSION['id']) && $_SESSION['id'] > 0)
                     </td>
                 </tr>
             </table>
+
             <?php 
         if(isset($msg))
         {

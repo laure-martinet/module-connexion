@@ -8,7 +8,7 @@
    <header>
    <h1>Accueil</h1>
    </header>
-
+<body>
    <div class="link">
       <a href="inscription.php"><input type="button" value="Inscription"></a>
       <p>OU</p>
@@ -22,4 +22,5 @@
          </a>
       </div>
    </footer>
+   </body>
       </html>
