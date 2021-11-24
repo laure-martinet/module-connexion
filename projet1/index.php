@@ -18,7 +18,7 @@
    <footer>
       <div id="github">
          <a href="https://github.com/laure-martinet/module-connexion">
-            <img src="imggit.png" width="300" height="200">
+            <img src="imggit-removebg-preview.png" width="300" height="200">
          </a>
       </div>
    </footer>
