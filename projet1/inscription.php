@@ -1,5 +1,5 @@
 <?php
-    $bdd = new PDO('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
+    $bdd = new PDO('mysql:host=localhost; dbname=laure-martinet_moduleconnexion', 'lauremartinet', 'couscous123');
         if (isset($_POST['inscription'])){
             $erreur = "";
             $login = htmlspecialchars($_POST['login']);

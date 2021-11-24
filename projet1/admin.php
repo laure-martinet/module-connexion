@@ -1,5 +1,5 @@
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=moduleconnexion;charset=utf8', 'root', '');
+$bdd = new PDO('mysql:host=localhost;dbname=laure-martinet_moduleconnexion;charset=utf8', 'lauremartinet', 'couscous123');
 
 if(isset($_GET['type']) AND $_GET['type'] == 'utilisateurs') {
    

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$bdd = new PDO('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
+$bdd = new PDO('mysql:host=localhost; dbname=laure-martinet_moduleconnexion', 'lauremartinet', 'couscous123');
 if(isset($_GET['id']) AND $_GET['id'] > 0 ){
     $getid = intval($_SESSION['id']); // Convertie ma valeur en int ( ID = un numéro )
     $requtilisateur = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ?'); // créer une requete qui va récuperer tout de mon utilisateur de mon id actuel
