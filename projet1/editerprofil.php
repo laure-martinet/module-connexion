@@ -130,11 +130,11 @@ if(isset($_SESSION['id']) && $_SESSION['id'] > 0)
         }
         ?>
         
-            <a href="espacemembre.php">
+            <a href="profil.php.php">
             <input type="submit" name="confirmation" value="Confirmé !">
             </a>
             <br><br>
-            <form method="POST" action="espacemembre.php">
+            <form method="POST" action="profil.php.php">
             <input type="submit" name="Retour" value="Retour" >
             </form>
         </div>
